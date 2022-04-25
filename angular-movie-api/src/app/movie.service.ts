@@ -6,12 +6,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Movie } from './movie';
 
-
-
 @Injectable({ providedIn: 'root' })
 export class MovieService {
 
-  private moviesUrl = 'http://localhost:5197/swagger/index.html/api/Movies';  // URL to web api
+  public moviesUrl = '/api/Movies';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -50,7 +48,7 @@ export class MovieService {
   }
 
   /* GET movies whose name contains search term */
-  searchmovies(term: string): Observable<Movie[]> {
+ /* searchmovies(term: string): Observable<Movie[]> {
     if (!term.trim()) {
       // if not search term, return empty movie array.
       return of([]);
@@ -60,7 +58,7 @@ export class MovieService {
       catchError(this.handleError<Movie[]>('searchmovies', []))
     );
   }
-
+*/
   //////// Save methods //////////
 
   /** POST: add a new movie to the server */
